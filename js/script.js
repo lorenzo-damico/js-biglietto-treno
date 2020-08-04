@@ -16,9 +16,9 @@ var tariffaMinorenni = tariffaBase - scontoMinorenni;
 var tariffaOver65 = tariffaBase - scontoOver65;
 
 // 6. Effettuo l'arrotondamento delle tariffe a 2 valori decimali
-var tariffaBaseArrotondata = Math.round(tariffaBase * 100) / 100;
-var tariffaMinorenniArrotondata = Math.round(tariffaMinorenni * 100) / 100;
-var tariffaOver65Arrotondata = Math.round(tariffaOver65 * 100) / 100;
+var tariffaBaseArrotondata = tariffaBase.toFixed(2);
+var tariffaMinorenniArrotondata = tariffaMinorenni.toFixed(2);
+var tariffaOver65Arrotondata = tariffaOver65.toFixed(2);
 
 // 7. Stampo il risultato in base all'età inserita
 if (isNaN(eta) || isNaN(distanza)) {
@@ -34,10 +34,10 @@ if (isNaN(eta) || isNaN(distanza)) {
 
 // Debug
 console.log(tariffaBase);
-console.log("arrotondamento " + tariffaBaseArrotondata);
+console.log(tariffaBaseArrotondata);
 console.log(scontoMinorenni);
 console.log(tariffaMinorenni);
-console.log("arrotondamento " + tariffaMinorenniArrotondata);
+console.log(tariffaMinorenniArrotondata);
 console.log(scontoOver65);
 console.log(tariffaOver65);
-console.log("arrotondamento " + tariffaOver65Arrotondata);
+console.log(tariffaOver65Arrotondata);
