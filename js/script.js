@@ -16,7 +16,10 @@ var tariffaMinorenni = tariffaBase - scontoMinorenni;
 var tariffaOver65 = tariffaBase - scontoOver65;
 
 // 6. Stampo il risultato in base all'età inserita
-if (eta < 18) {
+if (isNaN(eta) || isNaN(distanza)) {
+  alert("Attenzione! Sono ammessi solo valori numerici!")
+}
+  else if (eta < 18) {
   document.getElementById('costo').innerHTML = tariffaMinorenni + " &euro;";
 } else if (eta >= 65) {
   document.getElementById('costo').innerHTML = tariffaOver65 + " &euro;";
