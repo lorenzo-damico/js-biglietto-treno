@@ -15,21 +15,29 @@ var scontoOver65 = (tariffaBase / 100) * 40;
 var tariffaMinorenni = tariffaBase - scontoMinorenni;
 var tariffaOver65 = tariffaBase - scontoOver65;
 
-// 6. Stampo il risultato in base all'età inserita
+// 6. Effettuo l'arrotondamento delle tariffe a 2 valori decimali
+var tariffaBaseArrotondata = Math.round(tariffaBase * 100) / 100;
+var tariffaMinorenniArrotondata = Math.round(tariffaMinorenni * 100) / 100;
+var tariffaOver65Arrotondata = Math.round(tariffaOver65 * 100) / 100;
+
+// 7. Stampo il risultato in base all'età inserita
 if (isNaN(eta) || isNaN(distanza)) {
   alert("Attenzione! Sono ammessi solo valori numerici!")
 }
   else if (eta < 18) {
-  document.getElementById('costo').innerHTML = tariffaMinorenni + " &euro;";
+  document.getElementById('costo').innerHTML = tariffaMinorenniArrotondata + " &euro;";
 } else if (eta >= 65) {
-  document.getElementById('costo').innerHTML = tariffaOver65 + " &euro;";
+  document.getElementById('costo').innerHTML = tariffaOver65Arrotondata + " &euro;";
 } else {
-  document.getElementById('costo').innerHTML = tariffaBase + " &euro;";
+  document.getElementById('costo').innerHTML = tariffaBaseArrotondata + " &euro;";
 }
 
 // Debug
 console.log(tariffaBase);
+console.log("arrotondamento " + tariffaBaseArrotondata);
 console.log(scontoMinorenni);
 console.log(tariffaMinorenni);
+console.log("arrotondamento " + tariffaMinorenniArrotondata);
 console.log(scontoOver65);
 console.log(tariffaOver65);
+console.log("arrotondamento " + tariffaOver65Arrotondata);
